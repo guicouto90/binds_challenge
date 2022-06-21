@@ -1,4 +1,4 @@
-const { newBook, getBookById, getAllBooksByUser, eraseBook, editType } = require("../services/booksService");
+const { newBook, getBookById, getAllBooksByUser, eraseBook, editType, findByQuery } = require("../services/booksService");
 const { CREATED, OK, NO_CONTENT } = require("../utils/statusCode");
 
 const addBook = async (req, res, next) => {
@@ -51,6 +51,15 @@ const updateBookType = async (req, res, next) => {
   }
 }
 
+const listByQuery = async (req, res, next) => {
+  try {
+    const result = await findByQuery(req.email, req.query.type);
+    
+    return res.status(OK).json(result);
+  } catch (error) {
+    next(error)
+  }
+}
 
 
 module.exports = {
@@ -58,5 +67,6 @@ module.exports = {
   listBookById,
   listAllBooksByUser,
   deleteBookById,
-  updateBookType
+  updateBookType,
+  listByQuery
 }

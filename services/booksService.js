@@ -66,10 +66,18 @@ const editType = async(id, userEmail, body) => {
   return { message: `Book ${book.title} updated successfully `}
 }
 
+const findByQuery = async (userEmail, type) => {
+  const books = await getAllBooksByUser(userEmail);
+  const filteredBooks = books.filter((book) => book.type.includes(type));
+
+  return filteredBooks;
+}
+
 module.exports = {
   newBook,
   getBookById,
   getAllBooksByUser,
   eraseBook,
-  editType
+  editType,
+  findByQuery
 }

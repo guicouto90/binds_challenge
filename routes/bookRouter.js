@@ -1,9 +1,10 @@
 const express = require('express');
-const { addBook, listBookById, listAllBooksByUser, deleteBookById, updateBookType } = require('../controllers/booksController');
+const { addBook, listBookById, listAllBooksByUser, deleteBookById, updateBookType, listByQuery } = require('../controllers/booksController');
 const { validateToken } = require('../middlewares/auth');
 
 const bookRouter = express.Router();
 
+bookRouter.get('/search', validateToken, listByQuery);
 bookRouter.get('/:id', validateToken, listBookById);
 bookRouter.get('/', validateToken, listAllBooksByUser);
 bookRouter.post('/', validateToken, addBook);
