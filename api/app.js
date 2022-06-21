@@ -10,6 +10,10 @@ app.use(express.json());
 
 app.use(dbConnection);
 
+app.get('/', (req, res) => {
+  return res.send('Olá, essa é uma API para o teste técnico da empresa Binds, consulte a documentação: https://github.com/guicouto90/binds_challenge, para acessar as rotas corretas. ')
+})
+
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/books', bookRouter);
