@@ -17,8 +17,13 @@ const bookSchema = joi.object({
   userEmail: joi.string().email().required()
 })
 
+const typeSchema = joi.object({
+  type: joi.string().not().empty().required(),
+})
+
 module.exports = { 
   userSchema,
   bookSchema,
-  passwordSchema
+  passwordSchema,
+  typeSchema
 }

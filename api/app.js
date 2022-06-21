@@ -3,6 +3,7 @@ const errorHandler = require('../middlewares/errorHandler');
 const dbConnection = require('../middlewares/dbConnection');
 const usersRouter = require('../routes/userRouter');
 const loginRouter = require('../routes/loginRouter');
+const bookRouter = require('../routes/bookRouter');
 const app = express();
 
 app.use(express.json());
@@ -11,6 +12,7 @@ app.use(dbConnection);
 
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
+app.use('/books', bookRouter);
 
 app.use(errorHandler);
 
