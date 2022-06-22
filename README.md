@@ -27,7 +27,7 @@ O projeto faz um CRUD de livros, onde é necessário ter um usuário criado e lo
 - Clone o repositório em sua máquina;
 - Acesse as pasta e rode o comando `npm install` para instalação das dependencias;
 - Rode o comando `npm start` inicializar a Api localmente;
-- A API rodara na porta 3001 localmente;
+- API rodará na porta 3001 de sua máquina;
 - É necessário o serviço do MongoDB funcionando localmente.
 - Também é possível acessar API pelo deploy no Heroku pelo link: https://binds-challenge-api.herokuapp.com/
 
@@ -37,7 +37,7 @@ O projeto faz um CRUD de livros, onde é necessário ter um usuário criado e lo
 - Rotas e métodos:
   - POST: `/users`
   - DELETE: `/users`
-  - PUT: `/users/`
+  - PUT: `/users`
 
 #### POST `/users`:
 - API permite que seja criado um novo usuario através do método POST no endpoint `/users` passando no body um json no formato:
