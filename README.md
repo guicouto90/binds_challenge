@@ -49,10 +49,10 @@ O projeto faz um CRUD de livros, onde é necessário ter um usuário criado e lo
 ```
 
 #### DELETE `/users`:
-- API permite que seja possivel deletar o usuario que esteja logado com um token válido através d método DELETE no endpoint `/users`. Não é possível deletar um outro usuário que não seja o próprio. O token quem que ser passado no header utilizando a chave `authorization`.
+- API permite que seja possivel deletar o usuario que esteja logado com um token válido através do método DELETE no endpoint `/users`. Não é possível deletar um outro usuário que não seja o próprio. O token tem que ser passado no header utilizando a chave `authorization`.
 
 #### PUT `/users`:
-- API permite que seja possivel editar a senha do usuario que esteja logado com um token válido através do método PUT no endpoint `/users`. Não é possível alterar a senha um outro usuário que não seja o próprio. O token quem que ser passado no header utilizando a chave `authorization`. É necessário passar um body, no formato json com as seguintes chaves:
+- API permite que seja possivel editar a senha do usuario que esteja logado com um token válido através do método PUT no endpoint `/users`. Não é possível alterar a senha um outro usuário que não seja o próprio. O token tem que ser passado no header utilizando a chave `authorization`. É necessário passar um body, no formato json com as seguintes chaves:
 ```json
     {
       "password": "String referente a senha atual.",
