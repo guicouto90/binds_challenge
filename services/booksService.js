@@ -4,6 +4,7 @@ const errorConstructor = require("../utils/errorConstructor");
 const { bookNotFound, userUnauthorized } = require("../utils/errorMessages");
 const { bookSchema, typeSchema } = require("../utils/schemas");
 const { NOT_FOUND, UNAUTHORIZED } = require("../utils/statusCode");
+const { verifyUserByEmail } = require("./usersService");
 
 const validateBooksSchema = (title, type, author, userEmail) => {
   const { error } = bookSchema.validate({ title, type, author, userEmail });
@@ -28,6 +29,7 @@ const verifyAccessByEmail = (bookEmail, userEmail) => {
 }
 
 const newBook = async (body, userEmail) => {
+  await verifyUserByEmail(userEmail);
   const { title, type, author } = body;
   validateBooksSchema(title, type, author, userEmail);
   const book = await Books.create({ title, type, author, userEmail });
@@ -36,6 +38,7 @@ const newBook = async (body, userEmail) => {
 }
 
 const getBookById = async (id, userEmail) => {
+  await verifyUserByEmail(userEmail);
   const book = await verifyBookById(id);
   verifyAccessByEmail(book.userEmail, userEmail);
 
@@ -43,12 +46,14 @@ const getBookById = async (id, userEmail) => {
 }
 
 const getAllBooksByUser = async (userEmail) => {
+  await verifyUserByEmail(userEmail);
   const books = await Books.find({ userEmail });
 
   return books;
 }
 
 const eraseBook = async (id, userEmail) => {
+  await verifyUserByEmail(userEmail);
   const book = await verifyBookById(id);
   verifyAccessByEmail(book.userEmail, userEmail);
 
@@ -56,6 +61,7 @@ const eraseBook = async (id, userEmail) => {
 }
 
 const editType = async(id, userEmail, body) => {
+  await verifyUserByEmail(userEmail);
   const { type } = body;
   validateTypeSchema(type);
   const book = await verifyBookById(id);
@@ -67,6 +73,7 @@ const editType = async(id, userEmail, body) => {
 }
 
 const findByQuery = async (userEmail, type) => {
+  await verifyUserByEmail(userEmail);
   const books = await getAllBooksByUser(userEmail);
   const filteredBooks = books.filter((book) => book.type.includes(type));
 

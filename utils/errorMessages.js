@@ -4,5 +4,6 @@ module.exports = {
   invalidLogin: 'Invalid email or password',
   invalidPassword: 'Invalid password',
   bookNotFound: 'Book not found',
+  userNotFound: 'User not found',
   userUnauthorized: 'User not allowed to access this book'
 };
