@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./api/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./tests/**/*$NAME*.{test,spec}.js --exit",
     "dev": "nodemon ./api/server.js"
   },
   "repository": {
@@ -28,6 +28,11 @@
     "mongoose": "^6.4.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0",
+    "mongodb-memory-server": "^6.9.6",
+    "nodemon": "^2.0.16",
+    "sinon": "^14.0.0"
   }
 }

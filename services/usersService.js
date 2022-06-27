@@ -41,7 +41,7 @@ const newUser = async (body) => {
   const finalPassword = cryptoPass(password);
   await Users.create({ email, password: finalPassword });
 
-  return { messsage: `User with email ${email} registered succesfully` }
+  return { message: `User with email ${email} registered succesfully` }
 }
 
 const editPassword = async(email, body) => {

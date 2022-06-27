@@ -1,5 +1,5 @@
 const { newUser, editPassword, eraseUser } = require("../services/usersService");
-const { CREATED, NO_CONTENT } = require("../utils/statusCode");
+const { CREATED, NO_CONTENT, OK } = require("../utils/statusCode");
 
 const addUser = async(req, res, next) => {
   try {
@@ -15,7 +15,7 @@ const updatePassword = async(req, res, next) => {
   try {
     const user = await editPassword(req.email, req.body);
 
-    return res.status(CREATED).json(user);
+    return res.status(OK).json(user);
   } catch (error) {
     next(error)
   }
