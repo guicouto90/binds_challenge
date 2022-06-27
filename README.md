@@ -110,6 +110,7 @@ O projeto faz um CRUD de livros, onde é necessário ter um usuário criado e lo
 - API permite que seja possivel procurar um livro especifico cadastrados pelo usuário logado, através do método GET no endpoint `/books/search?type=`, onde é passado um tipo de livro na url para filtrar a busca. Lembrando que a busca será feita nos livros cadastrados pelo usuário.
 
 ## Próximos passos no projeto:
+- Testes para o endpoint Books,
 - Aprimoramento nos testes;
 - Dockerizar aplicação
 
